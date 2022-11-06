@@ -23,6 +23,7 @@ public class Feladat03_OneBrowser {
         driver = new ChromeDriver(chromeOptions);
     }
 
+
     @ParameterizedTest
     @ValueSource(strings = { "Chapter1", "Chapter2", "Chapter3", "Chapter4", "Chapter5" })
     public void testFeladat03(String chapter) throws Exception {
