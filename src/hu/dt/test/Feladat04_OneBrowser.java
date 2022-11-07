@@ -1,10 +1,7 @@
 package hu.dt.test;
 
 
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.RepeatedTest;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -37,5 +34,30 @@ public class Feladat04_OneBrowser {
     public static void tearDown() throws Exception {
             driver.quit();
 
+    }
+
+    public static class Feladat02 {
+
+        WebDriver driver = null;
+        ChromeOptions chromeOptions;
+
+        @BeforeEach
+        public void setup() {
+            System.setProperty("webdriver.chrome.driver","d:\\WebBrowsers\\ChromePortableDriver_106\\chromedriver.exe");
+            ChromeOptions chromeOptions = new ChromeOptions();
+            chromeOptions.setBinary("d:\\WebBrowsers\\ChromePortableBin_106\\chrome.exe");
+            driver = new ChromeDriver(chromeOptions);
+        }
+
+        @Test
+        public void testFeladat02() throws Exception {
+            driver.get("https://raczpeterantal.hu");
+            Thread.sleep(5000);
+        }
+
+        @AfterEach
+        public void tearDown() throws Exception {
+            driver.quit();
+        }
     }
 }
